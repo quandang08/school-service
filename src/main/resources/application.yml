@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: school  # ? T�n service, ph?i kh?p v?i t�n trong Eureka
+    name: school
   config:
     import: optional:configserver:http://localhost:8888
   datasource:
@@ -23,3 +23,5 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10  # Mặc định là 90s, có thể giảm để instance hết hạn nhanh hơn nếu bị mất kết nối

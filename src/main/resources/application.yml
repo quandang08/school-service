@@ -1,29 +1,6 @@
-server:
-  port: 8091
-
 spring:
   application:
-    name: school
+    name: schools
   config:
     import: optional:configserver:http://localhost:8888
-    students-url: http://localhost:8090/api/v1/students
 
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/schools
-    username: postgres
-    password: quan2108
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 10  # Mặc định là 90s, có thể giảm để instance hết hạn nhanh hơn nếu bị mất kết nối
